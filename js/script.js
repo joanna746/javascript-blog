@@ -1,5 +1,5 @@
 'use strict';
-
+{
 const titleClickHandler= function(event) {
   event.preventDefault();
   const clickedElement = this;
@@ -40,3 +40,6 @@ for(let activeLink of activeLinks){
     for(let link of links){
       link.addEventListener('click', titleClickHandler);
     }
+  }
+
+  
