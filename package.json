@@ -194,16 +194,20 @@
     "yeast": "^0.1.2"
   },
   "devDependencies": {
-    "mkdirp": "^1.0.4"
+    "eslint": "^8.8.0",
+    "mkdirp": "^1.0.4",
+    "npm-run-all": "^4.1.5",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "watch:browsersync": "browser-sync start --server --files \"css/*.css\" \"*.html\" \"js/*.js\"",
+    "watch": "npm-run-all build:*build-dev -p watch:*",
     "html-validate": "html-validate index.html",
-    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore"
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
     "init:files": "touch README.md index.html sass/style.scss js/script.js",
     "init:dirs": "mkdirp sass css vendor images js",
     "init-project": "npm install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm-run-all test:*",
+    "test:js": "eslint js/"
   },
   "repository": {
     "type": "git",

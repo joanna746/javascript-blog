@@ -1,5 +1,6 @@
 'use strict';
 {
+  // eslint-disable-next-line no-unused-vars
   const titleClickHandler = function (event) {
     event.preventDefault();
     const clickedElement = this;
@@ -33,13 +34,7 @@
 
     /* add class 'active' to the correct article */
     targetArticle.classList.add('active');
-  }
-
-  const links = document.querySelectorAll('.titles a');
-
-  for (let link of links) {
-    link.addEventListener('click', titleClickHandler);
-  }
+  };
 }
 
 {
@@ -47,27 +42,40 @@
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
 
+  // eslint-disable-next-line no-inner-declarations
   function generateTitleLinks() {
 
     /* remove contents of titleList */
-    const titleList = document.querySelectorAll(optTitleListSelector);
+    let titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
 
     /* for each article */
     const articles = document.querySelectorAll(optArticleSelector);
-    console.log(articles);
-    /* get the article id */
-    const articleId = document.getAttribute('id');
-    console.log(articleId);
-  /* find the title element */
+    for (let article of articles) {
 
-  /* get the title from the title element */
+      /* get the article id */
+      const articleId = article.getAttribute('id');
 
-  /* create HTML of the link */
+      /* find the title element */
+      const articleTitleElement = article.querySelector(optTitleSelector);
 
-  /* insert link into titleList */
+      /* get the title from the title element */
+      const articleTitle = articleTitleElement.innerHTML;
 
-}
+      /* create HTML of the link */
+      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
-generateTitleLinks();
+      /* insert link into titleList */
+      titleList.innerHTML = titleList.innerHTML + linkHTML;
+    }
+
+    const links = document.querySelectorAll('.titles a');
+
+    for (let link of links) {
+      // eslint-disable-next-line no-undef
+      link.addEventListener('click', titleClickHandler);
+    }
+  }
+
+  generateTitleLinks();
 }
