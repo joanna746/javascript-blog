@@ -1,6 +1,5 @@
 'use strict';
-{
-  // eslint-disable-next-line no-unused-vars
+
   const titleClickHandler = function (event) {
     event.preventDefault();
     const clickedElement = this;
@@ -15,7 +14,7 @@
 
     /*[DONE] add class 'active' to the clicked link */
     clickedElement.classList.add('active');
-    console.log('clickedElement:', clickedElement);
+    //console.log('clickedElement:', clickedElement);
 
 
     /*[DONE] remove class 'active' from all articles */
@@ -35,14 +34,13 @@
     /* add class 'active' to the correct article */
     targetArticle.classList.add('active');
   };
-}
 
-{
+
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
+    optArticleTagsSelector = '.post-tags .list';
 
-  // eslint-disable-next-line no-inner-declarations
   function generateTitleLinks() {
 
     /* remove contents of titleList */
@@ -72,10 +70,45 @@
     const links = document.querySelectorAll('.titles a');
 
     for (let link of links) {
-      // eslint-disable-next-line no-undef
       link.addEventListener('click', titleClickHandler);
     }
-  }
-
-  generateTitleLinks();
 }
+generateTitleLinks();
+
+function generateTags() {
+  /* find all articles */
+  const articles = document.querySelectorAll(optArticleSelector);
+  console.log(articles);
+
+  /* START LOOP: for every article: */
+   for (let article of articles) {
+
+    /* find tags wrapper */
+    const tagWrapper = article.querySelector(optArticleTagsSelector);
+    console.log(tagWrapper);
+    /* make html variable with empty string */
+    let html = '';
+
+    /* get tags from data-tags attribute */
+    let articleTags = article.getAttribute('.data-tags');
+    console.log(articleTags);
+    /* split tags into array */
+    const articleTagsArray = articleTags.split(' ');
+    /* START LOOP: for each tag */
+   for(let tag of articleTagsArray){
+
+    /* generate HTML of the link */
+    let linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+   }
+    
+    /* add generated code to html variable */
+    html = html + linkHTML;
+  
+    /* END LOOP: for each tag */
+    tagWrapper.innerHTML = html;
+    /* insert HTML of all the links into the tags wrapper */
+
+    /* END LOOP: for every article: */
+    }
+  }
+  generateTags();
