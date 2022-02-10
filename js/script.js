@@ -193,6 +193,11 @@ function generateAuthors() {
     authorsWrapper.innerHTML = html; 
     console.log(authorsWrapper);
   }
+  const authorsList = document.querySelector('.authors.list');
+    authorsList.classList.remove('active');
+    console.log(authorsList);
+    const 
+    
 }
 
 generateAuthors();
@@ -213,7 +218,7 @@ function authorClickHandler(event) {
   generateTitleLinks('[data-author="' + author + '"]');
 }
 function addClickListenersToAuthors (){
-  const authorLink = document.querySelectorAll('.a[href^="#author-"]');
+  const authorLinks = document.querySelectorAll('.a[href^="#author-"]');
   for (let authorLink of authorLinks){
     authorLink.addEventListener('click', authorClickHandler);
   }
