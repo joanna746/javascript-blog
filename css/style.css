@@ -103,3 +103,21 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+a.tag-size-5{
+  font-size: 1.75em;
+}
+a.tag-size-4{
+  font-size:1.5em;
+}
+a.tag-size-3{
+  font-size:1.25em ;
+}
+a.tag-size-2{
+  font-size: 1em;
+}
+a.tag-size-1{
+  font-size: 0.75em;
+}
+ul.tags li{
+  display: inline;
+}
