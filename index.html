@@ -218,7 +218,7 @@
       <li><a href="#tag-{{ id }}"><span>{{ title }}</span></a></li>
     </script>
     <script id="template-author-link" type="text/x-handlebars-template">
-      <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+      <li><a href="#author-{{ id }}"><span>{{ title }}</span></a></li>
     </script>
     <script id='template-tag-cloud-link' type="text/x-handlebars-template">
       {{#each tags}}
@@ -226,7 +226,7 @@
       {{/each}}
     </script>
     <script id='template-author-cloud-link' type="text/x-handlebars-template">
-      {{#each tags}}
+      {{#each authors}}
       <li><a href="#author-{{ author }}">{{ author }}</a>{{ count }}</li>
       {{/each}}
     </script>

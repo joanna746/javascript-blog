@@ -295,8 +295,8 @@ function generateAuthors() {
 
 
   /* Create empty HTML variable for all links */
-  let allAuthorData = { author: [] };
-  console.log(allAuthorData);
+  let allAuthorsData = { authors: [] };
+  console.log(allAuthorsData);
 
   /* Start LOOP for every author in allAuthors */
   for (let author in allAuthors) {
@@ -305,14 +305,14 @@ function generateAuthors() {
     /* Generate HTML code for every author and add it into html code */
     //authorsListHTML += '<li><a href="#author-' + articleAuthor + '">' + articleAuthor + ' (' + allAuthors[articleAuthor] + ')</a></li>';
     //console.log(authorsListHTML);
-    allAuthorData.author.push({
+    allAuthorsData.authors.push({
       author: author,
       count: allAuthors[author],
     });
-    console.log(allAuthorData);
+    console.log(allAuthorsData);
   }
 
-  authorWrapper.innerHTML = templates.authorCloudLink(allAuthorData);
+  authorWrapper.innerHTML = templates.authorCloudLink(allAuthorsData);
 
 
 };
